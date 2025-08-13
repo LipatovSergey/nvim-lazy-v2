@@ -1,0 +1,17 @@
+# Временные и кеш-файлы Neovim
+swap/
+undo/
+session/
+*.log
+
+# Плагины и менеджеры плагинов (хранятся локально, а не в репо)
+plugin/packer_compiled.lua
+site/
+pack/
+
+# lazy.nvim хранится в stdpath("data"), а не в конфиге, но на всякий случай
+lazy-lock.json
+
+# LSP, treesitter кеш
+*.tscache
+

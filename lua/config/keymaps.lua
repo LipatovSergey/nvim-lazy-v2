@@ -32,3 +32,23 @@ vim.keymap.set({ "n", "x" }, "<A-d>", "d", { desc = "Delete (yanks)", noremap = 
 vim.keymap.set({ "n", "x" }, "<A-x>", "x", { desc = "Delete char (yanks)", noremap = true })
 vim.keymap.set({ "n", "x" }, "<A-c>", "c", { desc = "Change (yanks)", noremap = true })
 vim.keymap.set("x", "<A-p>", "p", { desc = "Paste (yanks)", noremap = true })
+
+-- Yank History -> <leader>Y
+
+local function yank_history()
+  if LazyVim.pick.picker.name == "telescope" then
+    require("telescope").extensions.yank_history.yank_history({})
+  elseif LazyVim.pick.picker.name == "snacks" then
+    Snacks.picker.yanky()
+  else
+    vim.cmd([[YankyRingHistory]])
+  end
+end
+
+-- убрать стандартный <leader>p (если он ещё остался)
+pcall(vim.keymap.del, { "n", "x" }, "<leader>p")
+
+-- назначить Yank History
+vim.keymap.set({ "n", "x" }, "<leader>Y", yank_history, {
+  desc = "Open Yank History",
+})

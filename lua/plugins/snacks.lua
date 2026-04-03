@@ -1,21 +1,32 @@
 return {
   "folke/snacks.nvim",
-  opts = {
-    explorer = {
+  opts = function(_, opts)
+    opts = opts or {}
+
+    opts.explorer = vim.tbl_deep_extend("force", opts.explorer or {}, {
       filtered_items = {
         visible = true,
         hide_dotfiles = false,
-        hide_gitignored = false,
+        hide_gitignored = true,
       },
-    },
-    picker = {
-      hidden = true, -- для picker’а: показывать скрытые файлы
-      ignored = true, -- игнорировать .gitignore если нужно
+    })
+
+    opts.picker = vim.tbl_deep_extend("force", opts.picker or {}, {
+      hidden = true,
       sources = {
         files = {
-          hidden = true, -- обязательно включить
+          hidden = true,
         },
       },
-    },
-  },
+      grep = {
+        cmd = "rg",
+        args = {
+          "--hidden",
+          "--smart-case",
+        },
+      },
+    })
+
+    return opts
+  end,
 }

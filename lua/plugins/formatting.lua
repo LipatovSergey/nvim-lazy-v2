@@ -10,7 +10,7 @@ return {
       json = { "prettierd" },
       html = { "prettierd" },
       css = { "prettierd" },
-      markdown = { "prettierd" },
+      markdown = {},
     },
   },
 }

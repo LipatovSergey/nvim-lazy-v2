@@ -1,3 +1,4 @@
+-- Spell/typo checking via typos_lsp.
 return {
   {
     "neovim/nvim-lspconfig",

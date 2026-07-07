@@ -8,7 +8,7 @@ vim.keymap.set({ "i", "s" }, "<C-b>", function()
   end
 end, { desc = "Trigger completion popup" })
 
--- Move buuffer to left or right
+-- Move buffer to left or right
 vim.keymap.set("n", "<C-A-h>", "<cmd>BufferLineMovePrev<CR>", { desc = "Move buffer left" })
 vim.keymap.set("n", "<C-A-l>", "<cmd>BufferLineMoveNext<CR>", { desc = "Move buffer right" })
 
@@ -38,10 +38,6 @@ vim.keymap.set("x", "<A-p>", "p", { desc = "Paste (yanks)", noremap = true })
 local function yank_history()
   if LazyVim.pick.picker.name == "telescope" then
     require("telescope").extensions.yank_history.yank_history({})
-  elseif LazyVim.pick.picker.name == "snacks" then
-    Snacks.picker.yanky()
-  else
-    vim.cmd([[YankyRingHistory]])
   end
 end
 

@@ -1,3 +1,4 @@
+-- Main colorscheme configuration.
 return {
   {
     "catppuccin/nvim",

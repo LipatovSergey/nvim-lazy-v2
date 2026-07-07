@@ -15,3 +15,5 @@ lazy-lock.json
 # LSP, treesitter кеш
 *.tscache
 
+# Локальные настройки конкретной машины
+lua/config/autocmds_local.lua
